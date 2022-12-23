@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up / Login Form</title>
+    <style>
+      /* Add some styling for the form and tab buttons */
+      .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 400px;
+        margin: 0 auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+      }
+      .tab-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      .tab-button {
+        width: 50%;
+        text-align: center;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        border-radius: 5px 5px 0 0;
+        padding: 10px 0;
+        background-color: #f2f2f2;
+      }
+      .tab-button.active {
+        background-color: #ddd;
+      }
+      .form {
+        display: none;
+      }
+      .form.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <div class="tab-buttons">
+        <div class="tab-button active" data-form="signup">Sign Up</div>
+        <div class="tab-button" data-form="login">Login</div>
+      </div>
+      <form class="form active" id="signup" method="post" action="/signup">
+        <label for="signup-email">Email:</label><br />
+        <input type="email" id="signup-email" name="email" /><br />
+        <label for="signup-password">Password:</label><br />
+        <input type="password" id="signup-password" name="password" /><br />
+        <input type="submit" value="Sign Up" />
+      </form>
+      <form class="form" id="login" method="post" action="/login">
+        <label for="login-email">Email:</label><br />
+        <input type="email" id="login-email" name="email" /><br />
+        <label for="login-password">Password:</label><br />
+        <input type="password" id="login-password" name="password" /><br />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+    <script>
+      // Add event listeners for the tab buttons to switch between forms
+      const tabButtons = document.querySelectorAll(".tab-button");
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+          // Remove the active class from all buttons and forms
+          tabButtons.forEach((button) => button.classList.remove("active"));
+          const forms = document.querySelectorAll(".form");
+          forms.forEach((form) => form.classList.remove("active"));
+
+          // Add the active class to the clicked button and corresponding form
+          button.classList.add("active");
+          const formId = button.getAttribute("data-form");
+          document.getElementById(formId).classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
