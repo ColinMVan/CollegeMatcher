@@ -2,43 +2,11 @@
 <html>
   <head>
     <title>Sign Up / Login Form</title>
-    <style>
-      /* Add some styling for the form and tab buttons */
-      .form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 400px;
-        margin: 0 auto;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        padding: 20px;
-      }
-      .tab-buttons {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-      .tab-button {
-        width: 50%;
-        text-align: center;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        border-radius: 5px 5px 0 0;
-        padding: 10px 0;
-        background-color: #f2f2f2;
-      }
-      .tab-button.active {
-        background-color: #ddd;
-      }
-      .form {
-        display: none;
-      }
-      .form.active {
-        display: block;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
     <div class="form-container">
@@ -61,22 +29,5 @@
         <input type="submit" value="Login" />
       </form>
     </div>
-    <script>
-      // Add event listeners for the tab buttons to switch between forms
-      const tabButtons = document.querySelectorAll(".tab-button");
-      tabButtons.forEach((button) => {
-        button.addEventListener("click", (e) => {
-          // Remove the active class from all buttons and forms
-          tabButtons.forEach((button) => button.classList.remove("active"));
-          const forms = document.querySelectorAll(".form");
-          forms.forEach((form) => form.classList.remove("active"));
-
-          // Add the active class to the clicked button and corresponding form
-          button.classList.add("active");
-          const formId = button.getAttribute("data-form");
-          document.getElementById(formId).classList.add("active");
-        });
-      });
-    </script>
   </body>
 </html>

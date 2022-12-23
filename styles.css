@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --darkblue: rgb(59, 89, 153);
+  --lightblue: rgb(223, 227, 238);
+  --text: white;
+  --gray: #dddfe2;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  background: linear-gradient(rgba(59, 89, 153, 0.4), rgba(59, 89, 153, 0.4)),
+    url("https://i.redd.it/92p34mtzd3y41.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add some styling for the form and tab buttons */
+.form-container {
+  width: min(400px, 90%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 2em;
+  gap: 2rem;
+  background-color: var(--text);
+  font-size: 1.2rem;
+}
+
+.tab-buttons {
+  display: flex;
+}
+
+.tab-button {
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid var(--gray);
+  padding: 0.3em 1em;
+  background-color: #f2f2f2;
+}
+
+.tab-button.active {
+  background-color: var(--gray);
+}
+
+input[type="submit"] {
+  margin-top: 1em;
+  padding: 0.7em 0;
+  width: 100%;
+  background-color: var(--darkblue);
+  color: var(--text);
+  border-radius: 6px;
+  border: none;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+input[type="email"],
+input[type="password"] {
+  outline: none;
+  border: 2px solid var(--gray);
+  border-radius: 6px;
+  padding: 0.7em;
+  margin-bottom: 1rem;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: var(--darkblue);
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
